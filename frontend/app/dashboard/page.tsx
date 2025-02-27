@@ -4,6 +4,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
 import { currentUser } from "@clerk/nextjs/server";
+import { RequestSalaryCard } from "@/components/Dashboard/RequestSalaryCard";
 
 export default async function Page() {
     const user = await currentUser();
@@ -22,13 +23,8 @@ export default async function Page() {
                 </div>
 
             </header>
-            <div className="flex flex-1 flex-col gap-4 p-4 bg-blue-700">
-              <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                <div className="aspect-video rounded-xl bg-red/500" />
-                <div className="aspect-video rounded-xl bg-muted/50" />
-                <div className="aspect-video rounded-xl bg-green-500" />
-              </div>
-              <div className="min-h-[100vh] flex-1 rounded-xl bg-pink-400 md:min-h-min" />
+            <div className="flex flex-1 flex-col gap-4 p-4">
+              <RequestSalaryCard />
             </div>
           </SidebarInset>
         </SidebarProvider>
